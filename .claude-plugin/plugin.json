@@ -2,7 +2,7 @@
   "name": "carryover",
   "displayName": "Carryover",
   "description": "Task state that survives compaction. Before Claude Code compacts, a deterministic ledger of the user's verbatim instructions, the task list, files edited, and commands run is written; right after, it is re-injected so nothing the summary dropped is lost.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": {
     "name": "rashed parvez"
   },

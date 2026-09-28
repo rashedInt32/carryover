@@ -11,7 +11,7 @@
       "source": "./",
       "displayName": "Carryover",
       "description": "Before Claude Code compacts, a deterministic ledger of the user's verbatim instructions, the task list, files edited, and commands run is written; right after, it is re-injected.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "homepage": "https://github.com/rashedInt32/carryover",
       "repository": "https://github.com/rashedInt32/carryover",
       "license": "MIT",
