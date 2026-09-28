@@ -8,11 +8,12 @@ import { extract } from "../lib/transcript.mjs";
 const here = path.dirname(fileURLToPath(import.meta.url));
 const jsonl = fs.readFileSync(path.join(here, "fixture", "session.jsonl"), "utf8");
 
-test("extract keeps only typed human prompts, in order", () => {
+test("extract keeps typed and headless (sdk) human prompts, in order", () => {
   const d = extract(jsonl);
-  assert.equal(d.prompts.length, 2);
+  assert.equal(d.prompts.length, 3);
   assert.match(d.prompts[0].text, /^Fix the redirect loop/);
   assert.match(d.prompts[1].text, /^Also keep the fix under 20 lines/);
+  assert.match(d.prompts[2].text, /^Headless follow-up/);
 });
 
 test("extract drops meta, tool results, slash commands, and compact summaries", () => {
@@ -52,5 +53,5 @@ test("extract keeps the latest TodoWrite, the last assistant text, and session m
 
 test("extract survives garbage lines", () => {
   const d = extract("not json\n\n{\"type\":\"user\"}\n" + jsonl);
-  assert.equal(d.prompts.length, 2);
+  assert.equal(d.prompts.length, 3);
 });
