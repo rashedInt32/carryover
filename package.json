@@ -1,0 +1,16 @@
+{
+  "name": "carryover",
+  "version": "0.1.0",
+  "description": "Task state that survives Claude Code compaction: a deterministic ledger written before compaction and re-injected after.",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "author": "rashed parvez",
+  "repository": "github:rashedInt32/carryover",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test \"test/*.test.mjs\""
+  }
+}
