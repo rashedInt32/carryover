@@ -37,6 +37,16 @@ test("ledger renders every section and redacts secrets in prompts and commands",
   assert.doesNotMatch(text, /ghp_|sk-live/);
 });
 
+test("ledger leaves no blank gaps when sections are empty", () => {
+  const d = extract(jsonl);
+  d.todos = [];
+  d.files = [];
+  d.commands = [];
+  const text = renderLedger(d);
+  assert.doesNotMatch(text, /\n\n\n/);
+  assert.doesNotMatch(text, /Task list|Files edited|Recent commands/);
+});
+
 test("ledger keeps the first prompt and the most recent ones when there are many", () => {
   const d = extract(jsonl);
   d.prompts = Array.from({ length: 30 }, (_, i) => ({ text: `prompt number ${i + 1}`, ts: "" }));
